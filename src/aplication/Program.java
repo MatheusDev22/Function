@@ -6,7 +6,6 @@ import java.util.Locale;
 import java.util.stream.Collectors;
 
 import entiti.Product;
-import util.UpperCaseName;
 
 public class Program {
 
@@ -20,7 +19,7 @@ public class Program {
 		list.add(new Product("Tablet", 350.50) );
 		list.add(new Product("Hd Case", 80.90) );
 		
-		List<String> names = list.stream().map(Product::staticUpperCaseName).collect(Collectors.toList() );//convert stream em list
+		List<String> names = list.stream().map(Product::nonStaticUpperCaseName).collect(Collectors.toList() );//convert stream em list
 		
 		names.forEach(System.out::println);
 	}												 	
