@@ -3,6 +3,7 @@ package aplication;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import entiti.Product;
@@ -19,7 +20,9 @@ public class Program {
 		list.add(new Product("Tablet", 350.50) );
 		list.add(new Product("Hd Case", 80.90) );
 		
-		List<String> names = list.stream().map(Product::nonStaticUpperCaseName).collect(Collectors.toList() );//convert stream em list
+		Function<Product, String> func = p -> p.getName().toUpperCase();
+		
+		List<String> names = list.stream().map(func).collect(Collectors.toList() );//convert stream em list
 		
 		names.forEach(System.out::println);
 	}												 	
